@@ -1,0 +1,103 @@
+body {
+    display: -ms-grid;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav article ads"
+        "footer footer footer";
+    
+    -ms-grid-rows: 60px 1fr 60px;
+    -ms-grid-columns: 20% 1fr 15%;
+
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-columns: 20% 1fr 15%;
+
+    grid-gap: 10px;
+    height: 100vh;
+    }
+    header, footer{
+        background-color: rgb(141, 180, 214);
+    }
+    nav, div{
+        background-color: rgb(71, 113, 150);
+    }
+    article{
+        background-color: rgb(106, 151, 190);
+    }
+    header, footer, article, nav, div {
+    padding: 20px;
+    }
+    #pageHeader {
+    grid-area: header;
+    }
+    #pageFooter {
+    grid-area: footer;
+    }
+    #mainArticle {
+    grid-area: article;
+    }
+    #mainNav {
+    grid-area: nav;
+    }
+    #siteAds {
+    grid-area: ads;
+    }
+    .myForm {
+        display: grid;
+        grid-template-columns: [labels] auto [controls] 1fr;
+        grid-auto-flow: row;
+        grid-gap: .8em;
+        background: beige;
+        padding: 1.2em;
+        }
+        .myForm > label {
+        grid-column: labels;
+        grid-row: auto;
+        }
+        .myForm > input,
+        .myForm > textarea,
+        .myForm > select {
+        grid-column: controls;
+        grid-row: repeat(5 auto);
+        }
+        .myForm > button {
+        grid-column: span 2;
+        }
+
+        .myForm > button.loading {
+            cursor: default;
+            background: rgb(160, 160, 160);
+            border: none;
+        }
+
+        label.error {
+            position: absolute;
+            top: 15%;
+            right: 25%;
+            border: 1px solid red;
+            border-radius: 5px;
+            background: white;
+            padding: 10px;
+            color: red;
+        }
+        .success{
+            color: black;
+            min-height: 290px;
+        }
+
+        #wt-sky-root{
+            display: none;
+        }
+
+    @media all and (max-width: 575px) {
+        body {
+        grid-template-areas:
+            "header"
+            "article"
+            "ads"
+            "nav"
+            "footer";
+        grid-template-rows: 80px 1fr 70px 1fr 70px;
+        grid-template-columns: 1fr;
+        }
+    }
